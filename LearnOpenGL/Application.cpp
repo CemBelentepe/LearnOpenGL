@@ -4,6 +4,9 @@
 #include "Shader.h"
 
 #include <stb_image.h>
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 void processInput(GLFWwindow* window);
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
@@ -90,11 +93,11 @@ int main()
 
 	// Vertices
 	float vertices[] = {
-		// positions			// colors				// texture coords
-		 0.5f,  0.5f, 0.0f,		1.0f,  0.0f,  0.0f,		1.0f,  1.0f,	// top right
-		 0.5f, -0.5f, 0.0f,		0.0f,  1.0f,  0.0f,		1.0f,  0.0f,	// bottom right
-		-0.5f, -0.5f, 0.0f,		0.0f,  0.0f,  1.0f,		0.0f,  0.0f,	// bottom left
-		-0.5f,  0.5f, 0.0f,		1.0f,  1.0f,  0.0f,		0.0f,  1.0f		// top left
+		// positions			// texture coords
+		 0.5f,  0.5f, 0.0f,		1.0f,  1.0f,	// top right
+		 0.5f, -0.5f, 0.0f,		1.0f,  0.0f,	// bottom right
+		-0.5f, -0.5f, 0.0f,		0.0f,  0.0f,	// bottom left
+		-0.5f,  0.5f, 0.0f,		0.0f,  1.0f		// top left
 	};
 	unsigned int indices[] = {
 		0, 1, 3,
@@ -111,12 +114,10 @@ int main()
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
-	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3*sizeof(float)));
+	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3*sizeof(float)));
 	glEnableVertexAttribArray(1);
-	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6*sizeof(float)));
-	glEnableVertexAttribArray(2);
 
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
@@ -136,11 +137,26 @@ int main()
 		glClear(GL_COLOR_BUFFER_BIT);
 
 		shader.use();
+
+		// Transform
+		glm::mat4 trans = glm::mat4(1.0f);
+		trans = glm::translate(trans, glm::vec3(0.5f, -0.5f, 0.0f));
+		trans = glm::rotate(trans, (float)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f));
+		trans = glm::scale(trans, glm::vec3(0.5f, 0.5f, 0.5f));
+		shader.setMat4("transform", trans);
+
 		glActiveTexture(GL_TEXTURE0);
 		glBindTexture(GL_TEXTURE_2D, texture1);
 		glActiveTexture(GL_TEXTURE1);
 		glBindTexture(GL_TEXTURE_2D, texture2);
 		glBindVertexArray(VAO);
+		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+
+		glm::mat4 trans2 = glm::mat4(1.0f);
+		trans2 = glm::translate(trans2, glm::vec3(-0.5f, 0.5f, 0.0f));
+		trans2 = glm::scale(trans2, sin((float)glfwGetTime()) * glm::vec3(1.0f, 1.0f, 1.0f));
+		shader.setMat4("transform", trans2);
+
 		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
 		// Swap buffers, poll events
