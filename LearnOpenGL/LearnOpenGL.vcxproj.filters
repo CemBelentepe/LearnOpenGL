@@ -41,6 +41,9 @@
     <ClInclude Include="..\vendor\include\stb_image.h">
       <Filter>vendor</Filter>
     </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="shader.frag">
