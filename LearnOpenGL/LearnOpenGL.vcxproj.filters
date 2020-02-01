@@ -27,10 +27,10 @@
     <ClCompile Include="Shader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="glad.c">
+    <ClCompile Include="..\vendor\include\stb_image.cpp">
       <Filter>vendor</Filter>
     </ClCompile>
-    <ClCompile Include="..\vendor\include\stb_image.cpp">
+    <ClCompile Include="..\..\..\LearnOpenGL\vendor\include\glad.c">
       <Filter>vendor</Filter>
     </ClCompile>
   </ItemGroup>
@@ -50,6 +50,24 @@
       <Filter>Shaders</Filter>
     </None>
     <None Include="shader.vert">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="lightingShader.vert">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="lightingShader.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="lampShader.vert">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="lampShader.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="gouraudShader.vert">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="gouraudShader.frag">
       <Filter>Shaders</Filter>
     </None>
   </ItemGroup>
