@@ -19,6 +19,12 @@
     <Filter Include="vendor">
       <UniqueIdentifier>{d6b9b855-94d8-455c-afe3-5a828d6af3dd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Shaders\Light">
+      <UniqueIdentifier>{aafcf528-dbfa-4c73-b4a7-ac2f808829f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shaders\Obsolute">
+      <UniqueIdentifier>{a36fec05-7a6b-4bda-8217-47f31dde2aec}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">
@@ -46,29 +52,47 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="shader.frag">
-      <Filter>Shaders</Filter>
-    </None>
-    <None Include="shader.vert">
-      <Filter>Shaders</Filter>
-    </None>
-    <None Include="lightingShader.vert">
-      <Filter>Shaders</Filter>
-    </None>
-    <None Include="lightingShader.frag">
-      <Filter>Shaders</Filter>
-    </None>
     <None Include="lampShader.vert">
       <Filter>Shaders</Filter>
     </None>
     <None Include="lampShader.frag">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="gouraudShader.vert">
-      <Filter>Shaders</Filter>
+    <None Include="directionalLitShader.frag">
+      <Filter>Shaders\Light</Filter>
+    </None>
+    <None Include="directionalLitShader.vert">
+      <Filter>Shaders\Light</Filter>
+    </None>
+    <None Include="lightingShader.frag">
+      <Filter>Shaders\Light</Filter>
+    </None>
+    <None Include="lightingShader.vert">
+      <Filter>Shaders\Light</Filter>
+    </None>
+    <None Include="pointLitShader.frag">
+      <Filter>Shaders\Light</Filter>
+    </None>
+    <None Include="pointLitShader.vert">
+      <Filter>Shaders\Light</Filter>
     </None>
     <None Include="gouraudShader.frag">
-      <Filter>Shaders</Filter>
+      <Filter>Shaders\Obsolute</Filter>
+    </None>
+    <None Include="gouraudShader.vert">
+      <Filter>Shaders\Obsolute</Filter>
+    </None>
+    <None Include="shader.frag">
+      <Filter>Shaders\Obsolute</Filter>
+    </None>
+    <None Include="shader.vert">
+      <Filter>Shaders\Obsolute</Filter>
+    </None>
+    <None Include="spotLitShader.vert">
+      <Filter>Shaders\Light</Filter>
+    </None>
+    <None Include="spotLitShader.frag">
+      <Filter>Shaders\Light</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

@@ -94,14 +94,20 @@
     <ClInclude Include="Shader.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="directionalLitShader.frag" />
+    <None Include="directionalLitShader.vert" />
     <None Include="gouraudShader.frag" />
     <None Include="gouraudShader.vert" />
     <None Include="lampShader.frag" />
     <None Include="lampShader.vert" />
     <None Include="lightingShader.frag" />
     <None Include="lightingShader.vert" />
+    <None Include="pointLitShader.frag" />
+    <None Include="pointLitShader.vert" />
     <None Include="shader.frag" />
     <None Include="shader.vert" />
+    <None Include="spotLitShader.frag" />
+    <None Include="spotLitShader.vert" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="awesomeface.png" />
