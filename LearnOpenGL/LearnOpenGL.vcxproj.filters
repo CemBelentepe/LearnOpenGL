@@ -25,6 +25,9 @@
     <Filter Include="Shaders\Obsolute">
       <UniqueIdentifier>{a36fec05-7a6b-4bda-8217-47f31dde2aec}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Shaders\Mesh">
+      <UniqueIdentifier>{d527c78b-ea28-4fac-a077-e3e305d923d3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">
@@ -36,8 +39,14 @@
     <ClCompile Include="..\vendor\include\stb_image.cpp">
       <Filter>vendor</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\LearnOpenGL\vendor\include\glad.c">
+    <ClCompile Include="..\vendor\include\glad.c">
       <Filter>vendor</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -48,6 +57,12 @@
       <Filter>vendor</Filter>
     </ClInclude>
     <ClInclude Include="Camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -93,6 +108,18 @@
     </None>
     <None Include="spotLitShader.frag">
       <Filter>Shaders\Light</Filter>
+    </None>
+    <None Include="multiLitShader.frag">
+      <Filter>Shaders\Light</Filter>
+    </None>
+    <None Include="multiLitShader.vert">
+      <Filter>Shaders\Light</Filter>
+    </None>
+    <None Include="modelShader.vert">
+      <Filter>Shaders\Mesh</Filter>
+    </None>
+    <None Include="modelShader.frag">
+      <Filter>Shaders\Mesh</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
